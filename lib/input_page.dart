@@ -19,8 +19,8 @@ class _InputPageState extends State<InputPage> {
   Color femaleCardColour = inactiveCardColor;
 
   //1=male,2=female
-  void updateColour(Gender gender) {
-    if (gender == Gender.male) {
+  void updateColour(Gender selectGender) {
+    if (selectGender == Gender.male) {
       if (maleCardColour == inactiveCardColor) {
         maleCardColour = activeCardColor;
         femaleCardColour = inactiveCardColor;
@@ -28,7 +28,7 @@ class _InputPageState extends State<InputPage> {
         maleCardColour = inactiveCardColor;
       }
     }
-    if (gender == Gender.female) {
+    if (selectGender == Gender.female) {
       if (femaleCardColour == inactiveCardColor) {
         femaleCardColour = activeCardColor;
         maleCardColour = inactiveCardColor;
