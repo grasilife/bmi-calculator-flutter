@@ -2,12 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'Icon_content.dart';
 import 'reusable_card.dart';
-
-const double bottomContainerHeight = 80.0;
-const Color activeCardColor = Color(0xFF1D1E33);
-const Color inactiveCardColor = Color(0xFF111328);
-const Color bottomContainerColor = Color(0xFFEB1555);
-enum Gender { male, female }
+import 'constants.dart';
 
 class InputPage extends StatefulWidget {
   @override
@@ -36,8 +31,8 @@ class _InputPageState extends State<InputPage> {
                     });
                   },
                   colour: selectGender == Gender.male
-                      ? activeCardColor
-                      : inactiveCardColor,
+                      ? kActiveCardColor
+                      : kInactiveCardColor,
                   cardChild:
                       IconContent(icon: FontAwesomeIcons.mars, label: 'MALE'),
                 ),
@@ -50,8 +45,8 @@ class _InputPageState extends State<InputPage> {
                     });
                   },
                   colour: selectGender == Gender.female
-                      ? activeCardColor
-                      : inactiveCardColor,
+                      ? kActiveCardColor
+                      : kInactiveCardColor,
                   cardChild: IconContent(
                       icon: FontAwesomeIcons.venus, label: 'FEMALE'),
                 ),
@@ -59,24 +54,29 @@ class _InputPageState extends State<InputPage> {
             ],
           )),
           Expanded(
-            child: ReusableCard(colour: activeCardColor),
+            child: ReusableCard(
+              colour: kActiveCardColor,
+              cardChild: Column(
+                children: [Text("HEIGHT")],
+              ),
+            ),
           ),
           Expanded(
               child: Row(
             children: [
               Expanded(
-                child: ReusableCard(colour: activeCardColor),
+                child: ReusableCard(colour: kActiveCardColor),
               ),
               Expanded(
-                child: ReusableCard(colour: activeCardColor),
+                child: ReusableCard(colour: kActiveCardColor),
               ),
             ],
           )),
           Container(
-            color: bottomContainerColor,
+            color: kBottomContainerColor,
             margin: EdgeInsets.only(top: 10),
             width: double.infinity,
-            height: bottomContainerHeight,
+            height: kBottomContainerHeight,
           )
         ],
       ),
