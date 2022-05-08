@@ -13,6 +13,7 @@ class _InputPageState extends State<InputPage> {
   Gender selectGender;
   int height = 180;
   int weight = 60;
+  int age = 20;
 
   @override
   Widget build(BuildContext context) {
@@ -163,7 +164,54 @@ class _InputPageState extends State<InputPage> {
                 ),
               ),
               Expanded(
-                child: ReusableCard(colour: kActiveCardColor),
+                child: ReusableCard(
+                  colour: kActiveCardColor,
+                  cardChild: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'AGE',
+                        style: kLabelTextStyle,
+                      ),
+                      Text(
+                        age.toString(),
+                        style: kNumberTextStyle,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          RoundIconButton(
+                            onPressed: () {
+                              setState(() {
+                                age--;
+                              });
+                            },
+                            icon: FontAwesomeIcons.minus,
+                          ),
+                          // FloatingActionButton(
+                          //   onPressed: () {},
+                          //   backgroundColor: Color(0xFF4C4F5E),
+                          //   child: Icon(
+                          //     Icons.add,
+                          //     color: Colors.white,
+                          //   ),
+                          // ),
+                          SizedBox(
+                            width: 10.0,
+                          ),
+                          RoundIconButton(
+                            onPressed: () {
+                              setState(() {
+                                age++;
+                              });
+                            },
+                            icon: FontAwesomeIcons.plus,
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
               ),
             ],
           )),
